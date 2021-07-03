@@ -2,7 +2,7 @@
 
 ## About ##
 
-This small Python app is a coding project to try out the Folium library to build an interactive map of US Volcanoe locations overlayed on Stamen Terrain map tiles.
+This small Python app is a coding project to try out the Folium library to build an interactive map of US Volcano locations, overlayed on Stamen Terrain map tiles.
 
 ---
 
