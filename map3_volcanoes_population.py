@@ -79,7 +79,7 @@ def create_map_html(map_start, data_file):
     fgp.add_child(
         folium.GeoJson(
             data=open(
-                    'world.json',
+                    'assets/world.json',
                     'r',
                     encoding='utf-8-sig'
                 ).read(),
@@ -99,6 +99,6 @@ def create_map_html(map_start, data_file):
 
 
 init_map_coordinates = [41.80229638979926, -114.08502404620313]
-data_file = "Volcanoes.txt"
+data_file = "assets/Volcanoes.txt"
 
 create_map_html(init_map_coordinates, data_file)
