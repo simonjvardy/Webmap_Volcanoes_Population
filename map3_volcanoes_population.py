@@ -72,6 +72,18 @@ def create_map_html(map_start, data_file):
             fill_opacity=0.7
         ))
 
+    # Build the Country polygon layer with colour gradient for population
+    fg.add_child(
+        folium.GeoJson(
+            data=open(
+                    'world.json',
+                    'r',
+                    encoding='utf-8-sig'
+                ).read(),
+            style_function=lambda x: {'fillColor': 'green' if x['properties']['POP2005'] < 10000000 else 'orange' if 10000000 <= x['properties']['POP2005'] < 20000000 else 'red'}
+        )
+    )
+
     map.add_child(fg)
 
     # Create the map html file
