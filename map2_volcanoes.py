@@ -2,6 +2,19 @@ import folium
 import pandas
 
 
+def colour_producer(elevation):
+    """
+    Function to return different colours for the
+    map markers depending upon volcano elevation.
+    """
+    if elevation < 1000:
+        return 'green'
+    elif 1000 <= elevation < 3000:
+        return 'orange'
+    else:
+        return 'red'
+
+
 def create_map_html(map_start, data_file):
     """
     Function to create a base map with markers using Folium to
@@ -43,16 +56,20 @@ def create_map_html(map_start, data_file):
                 'Lat: ' + str(lt) + '<br>' +
                 'Long: ' + str(ln)
             )
-        
+
         # Build the Marker layer
-        fg.add_child(folium.Marker(
+        fg.add_child(folium.CircleMarker(
             location=[lt, ln],
+            radius=6,
             popup=folium.Popup(
                 iframe,
                 min_width=250,
                 max_width=300
             ),
-            icon=folium.Icon(color='red', icon='info-sign')
+            fill_color=colour_producer(el),
+            color='grey',
+            fill=True,
+            fill_opacity=0.7
         ))
 
     map.add_child(fg)
