@@ -39,8 +39,8 @@ def create_map_html(map_start, data_file):
         tiles="Stamen Terrain"
     )
 
-    # Add Folium Feature Group for map layers
-    fg = folium.FeatureGroup(name="My Map")
+    # Add Folium Feature Group for volcanoes map layer
+    fgv = folium.FeatureGroup(name="Volcanoes")
 
     # Add map markers as a Feature Group layer
     for nm, lc, el, st, tp, lt, ln in zip(
@@ -58,7 +58,7 @@ def create_map_html(map_start, data_file):
             )
 
         # Build the Marker layer
-        fg.add_child(folium.CircleMarker(
+        fgv.add_child(folium.CircleMarker(
             location=[lt, ln],
             radius=6,
             popup=folium.Popup(
@@ -72,8 +72,11 @@ def create_map_html(map_start, data_file):
             fill_opacity=0.7
         ))
 
+    # Add Folium Feature Group for population map layer
+    fgp = folium.FeatureGroup(name="Population")
+
     # Build the Country polygon layer with colour gradient for population
-    fg.add_child(
+    fgp.add_child(
         folium.GeoJson(
             data=open(
                     'world.json',
@@ -84,7 +87,12 @@ def create_map_html(map_start, data_file):
         )
     )
 
-    map.add_child(fg)
+    # Add the FeatureGroup layers to the map
+    map.add_child(fgv)
+    map.add_child(fgp)
+
+    # Add a control panel for layers display
+    map.add_child(folium.LayerControl())
 
     # Create the map html file
     map.save("index.html")

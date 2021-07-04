@@ -2,7 +2,10 @@
 
 ## About ##
 
-This small Python app is a coding project to try out the Folium library to build an interactive map of US Volcano locations, overlayed on Stamen Terrain map tiles.
+This small Python app is a coding project to try out the Folium library to build an interactive map of:
+- US Volcano locations
+- Country populations using colour gradient and polygons for country borders
+- overlayed on Stamen Terrain map tiles.
 
 ---
 
@@ -72,7 +75,13 @@ pip3 install -r requirements.txt
 - in you IDE terminal window, enter:
 
 ```python
-python3 map2_volcanoes.py
+python3 map3_volcanoes_population.py
 ```
 
 Run `index.html` locally to check the map and marker layer is functioning correctly
+
+---
+
+## Acknowledgements ##
+
+- [Udemy: The Python Mega Course - Build 10 Real World Applications](https://www.udemy.com/course/the-python-mega-course/) Credit: Ardit Sulce
