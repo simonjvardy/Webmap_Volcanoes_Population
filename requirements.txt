@@ -4,7 +4,7 @@ ipywidgets==7.6.3
 jupyter==1.0.0
 jupyter-console==6.4.0
 jupyterlab-widgets==1.0.0
-numpy==1.21.0
+numpy==1.22.0
 opencv-python==4.5.2.54
 pandas==1.2.5
 pytz==2021.1
